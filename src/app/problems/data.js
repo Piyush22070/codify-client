@@ -1,4 +1,3 @@
-"use client"
 export const problems =[
     {
         id :1,

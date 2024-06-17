@@ -12,8 +12,6 @@ export default function ProblemList(){
        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
        placeholder="Search ..."/>
       </div>
-
-      
       <table className="min-w-full bg-white border overflow-x-auto">
       <thead className=" mt-2">
             <tr>

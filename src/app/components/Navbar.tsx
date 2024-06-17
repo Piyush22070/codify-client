@@ -11,8 +11,8 @@ const Navbar = () => {
 
   return (
     <div>
-    <div className ="sticky bg-gray-800 text-white p-2">
-      <ul className="md:flex  w-[70%] flex items-center justify-evenly">
+    <div className =" bg-gray-800 text-white p-2">
+      <ul className=" hidden w-[70%] md:flex items-center justify-evenly">
         <li><Link href="/" className="hover:bg-gray-700 p-2 rounded">Home</Link></li>
         <li><Link href="/problems" className="hover:bg-gray-700 p-2 rounded">Problems</Link></li>
         <li><Link href="/contest" className="hover:bg-gray-700 p-2 rounded">Contest</Link></li>
