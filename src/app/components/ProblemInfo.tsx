@@ -5,7 +5,14 @@ import Image from "next/image"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 export default function ProblemInfo(props: any){
-    const [question,setQuesion] = useState({})
+    const [question,setQuesion] = useState({
+      id: 1,
+      name: "Name ",
+      difficulty : "infinite",
+      description : "description",
+      Constraints : "Constraints",
+      timeCompelxity : "O()"
+    })
     useEffect(
         ()=>{
             axios.get(`http://localhost:3001/problems/${props.index}`)
