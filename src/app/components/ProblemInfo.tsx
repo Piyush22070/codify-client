@@ -3,10 +3,10 @@ import { useEffect,useState } from "react"
 import axios from 'axios'
 import Image from "next/image"
 import { ScrollArea } from "@/components/ui/scroll-area"
-
+import Link from "next/link"
 export default function ProblemInfo(props: any){
     const [question,setQuesion] = useState({
-      number: 1,
+      number: "1",
       name: "Name ",
       difficulty : "infinite",
       description : "description",
@@ -26,6 +26,8 @@ export default function ProblemInfo(props: any){
     )
 
     return <div>
+      <button className="p-4 inline-flex items-center bg-gray-800 justify-center rounded-md text-sm font-medium text-white">
+      <Link href="/problems"> {`<`}</Link></button>
         <ScrollArea>
     <div className="container mx-auto p-4">
     <h1 className="text-2xl font-bold mb-4">{question.number} . {question.name}</h1>
