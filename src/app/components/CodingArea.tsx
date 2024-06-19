@@ -7,24 +7,28 @@ import { toast } from "sonner"
 export default function CodingArea(){
 
     const [code ,setCode] = useState("")
+    const [language ,setLanguage] = useState("")
+
     function handleOnChange(e: { target: { value: any } }){
         setCode(e.target.value)
     }
     function SaveCode(){
         toast("Code Saved Succesfully !")
-
+    }
+    function handelChange(e:any){
+       setLanguage(e.target.value)
     }
     function giveOutPut(){
         console.log(code)
-        const language = document.getElementById('language').value
         console.log(language)
     }
+    
     return <div>
         
         <div className="p-1 flex flex-row">
         <label className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Language : </label>
 
-        <select id="language" className=" px-6 py-3 text-left  font-medium text-gray-500 uppercase tracking-wider focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+        <select id="language" onChange={handelChange} className=" px-6 py-3 text-left  font-medium text-gray-500 uppercase tracking-wider focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             <option value="cpp">C++</option>
             <option value="java">Java</option>
             <option value="py">Python</option>
