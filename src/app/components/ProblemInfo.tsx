@@ -6,7 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 export default function ProblemInfo(props: any){
     const [question,setQuesion] = useState({
-      id: 1,
+      number: 1,
       name: "Name ",
       difficulty : "infinite",
       description : "description",
@@ -28,7 +28,7 @@ export default function ProblemInfo(props: any){
     return <div>
         <ScrollArea>
     <div className="container mx-auto p-4">
-    <h1 className="text-2xl font-bold mb-4">{question.id} . {question.name}</h1>
+    <h1 className="text-2xl font-bold mb-4">{question.number} . {question.name}</h1>
     <div className="mb-4">
     <p className="text-sm">
       <code>{question.difficulty}.</code>
