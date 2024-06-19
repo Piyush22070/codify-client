@@ -14,7 +14,7 @@ export default function problem({params} : any){
 
             <ResizablePanelGroup direction="horizontal" className=" rounded-lg gap-[2px]">
                         {/*This is Problem Info Area pannel */}
-                        <ResizablePanel defaultSize={50} className=" bg-slate-100">
+                        <ResizablePanel defaultSize={50} className=" bg-slate-100 rounded-xl">
                             <ProblemInfo index = {params.problem}/>
                         </ResizablePanel>
 
@@ -25,14 +25,14 @@ export default function problem({params} : any){
                     <ResizablePanelGroup direction="vertical" className="gap-[2px]">
 
                         {/*This is Coding Area pannel */}
-                        <ResizablePanel defaultSize={80} className=" bg-slate-100">
+                        <ResizablePanel defaultSize={70} className=" bg-slate-100 rounded-xl">
                             <CodingArea/>
                         </ResizablePanel>
                     
                     <ResizableHandle />
 
                     {/*This is Output Area pannel */}
-                    <ResizablePanel defaultSize={20} className=" bg-slate-600">
+                    <ResizablePanel defaultSize={30} className=" bg-slate-100 rounded-xl">
                         <Output/>
                     </ResizablePanel>
                             

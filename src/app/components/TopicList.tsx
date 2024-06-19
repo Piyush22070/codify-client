@@ -1,6 +1,6 @@
-import * as React from "react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
+import { useEffect, useState } from "react"
 
 const tags: any[] = [
     "Arrays and Strings",
@@ -14,34 +14,33 @@ const tags: any[] = [
     "Dynamic Programming (Optimal Substructure, Overlapping Subproblems)",
     "Greedy Algorithms",
     "Backtracking",
-    "Divide and Conquer",
-    "Segment Trees and Fenwick Trees (Binary Indexed Trees)",
-    "Tries (Prefix Trees)",
-    "String Matching Algorithms (KMP Algorithm, Rabin-Karp Algorithm)",
-    "Advanced Graph Algorithms (Strongly Connected Components, Topological Sorting, Minimum Spanning Tree Algorithms)",
-    "Computational Geometry (Convex Hull, Closest Pair of Points)",
-    "Number Theory (Sieve of Eratosthenes, Primality Testing, Modular Arithmetic)",
-    "Problem Solving (Algorithmic Problem Solving)",
-    "Competitive Programming",
-    "Interview Preparation"
   ]
-  
 
 export default function ScrollAreaDemo() {
+    const [topic ,setTopic] = useState("default")
+
+    useEffect(()=>{
+      //alert(topic)
+    })
+
+
   return (
-    <ScrollArea className="h-72 w-48 rounded-lg border shadow-xl mt-2 mr-2  borde">
-      <div className="p-4">
+    <div className="flex justify-center">
+
+    <ScrollArea className=" h-[500px] w-[400px] md:w-[200px] shadow-lg">
+      <div className="p-4   border-black]">
         <h4 className="mb-4 text-lg font-medium leading-none ">Topics :</h4>
-        {tags.map((tag) => (
-          <>
-            <div key={tag} className="text-sm ">
+        {tags.map((tag,index) => (
+          <div  key={index} >
+            <button onClick={()=>{setTopic(tag)}} className="text-sm ">
               {tag}
-            </div>
+            </button>
             <Separator className="my-2  mt-2" />
-          </>
+          </div>
         ))}
       </div>
-    </ScrollArea>
+      </ScrollArea>
+      </div>
   )
 }
 
