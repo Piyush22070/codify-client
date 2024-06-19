@@ -33,7 +33,7 @@ export default function ProblemList(){
   return (
 
 
-    <div className=' w-[310px] md:w-[700px] md:h-[800px] h-fit shadow-xl mt-3 px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider rounded-[5px] '>
+    <div className=' w-[400px] md:w-[700px] md:h-[800px] h-fit shadow-xl mt-3 px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider rounded-[5px] '>
       <div className='flex flex-row p-3'>      
       <label className="block text-gray-700 text-l font-bold mb-2 p-2 " >Search</label>
       <input type="text"className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -41,7 +41,7 @@ export default function ProblemList(){
       </div>
 
     <div >
-     <table className='w-[280px] p-2'>
+     <table className='w-[370px] p-2'>
       <thead className=' border-2 text-sm h-fit'>
         <tr>
         <td className='md:px-2'>Sr.no</td>
