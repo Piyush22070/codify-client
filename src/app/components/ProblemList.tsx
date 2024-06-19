@@ -6,7 +6,11 @@ import axios from 'axios'
 export default function ProblemList(){
 
   const [showElement, setShowElement] = useState(false);
-  const [question ,setQ] = useState([]);
+  const [question ,setQ] = useState([{
+    name : "",
+    difficulty : "",
+
+  },]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/problems`)
