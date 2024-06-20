@@ -1,6 +1,6 @@
-
+import Bot from '../components/Bot'
 export default function Contest(){
     return <div>
-        this is Contest page
+        <Bot/>
     </div>
 }

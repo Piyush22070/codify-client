@@ -1,8 +1,7 @@
-
+import Bot from "../components/Bot";
 
 export default function Library(){
     return <div>
-
-        this is Library page
+        <Bot/>
     </div>
 }
