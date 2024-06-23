@@ -10,36 +10,71 @@ import {
 
 export default function problem({params} : any){
 
-    return <div className=" p-1 w-full  h-[700px] shadow-lg mt-3">
+    return <div>
+            <div className="md:hidden p-1 w-full h-[800px] shadow-lg mt-3">
+                <ResizablePanelGroup direction="vertical" className=" rounded-lg gap-[2px]">
+                            {/*This is Problem Info Area pannel */}
+                            <ResizablePanel defaultSize={50} className=" bg-slate-100 rounded-xl">
+                                <ProblemInfo index = {params.problem}/>
+                            </ResizablePanel>
 
-            <ResizablePanelGroup direction="horizontal" className=" rounded-lg gap-[2px]">
-                        {/*This is Problem Info Area pannel */}
+                    <ResizableHandle/>
+
+                    <ResizablePanel defaultSize={50}>
+
+                        <ResizablePanelGroup direction="vertical" className="gap-[2px]">
+
+                            {/*This is Coding Area pannel */}
+                            <ResizablePanel defaultSize={50} className=" bg-slate-100 rounded-xl">
+                                <CodingArea/>
+                            </ResizablePanel>
+                        
+                        <ResizableHandle />
+
+                        {/*This is Output Area pannel */}
                         <ResizablePanel defaultSize={50} className=" bg-slate-100 rounded-xl">
-                            <ProblemInfo index = {params.problem}/>
+                            <Output/>
                         </ResizablePanel>
+                                
+                        </ResizablePanelGroup>
 
-                <ResizableHandle/>
-
-                <ResizablePanel defaultSize={50}>
-
-                    <ResizablePanelGroup direction="vertical" className="gap-[2px]">
-
-                        {/*This is Coding Area pannel */}
-                        <ResizablePanel defaultSize={70} className=" bg-slate-100 rounded-xl">
-                            <CodingArea/>
-                        </ResizablePanel>
-                    
-                    <ResizableHandle />
-
-                    {/*This is Output Area pannel */}
-                    <ResizablePanel defaultSize={30} className=" bg-slate-100 rounded-xl">
-                        <Output/>
                     </ResizablePanel>
-                            
-                    </ResizablePanelGroup>
 
-                </ResizablePanel>
+                </ResizablePanelGroup>
+        </div>
 
-            </ResizablePanelGroup>
+            <div className="hidden md:flex p-1 w-full h-[800px] shadow-lg mt-3">
+                <ResizablePanelGroup direction="horizontal" className=" rounded-lg gap-[2px]">
+                            {/*This is Problem Info Area pannel */}
+                            <ResizablePanel defaultSize={50} className=" bg-slate-100 rounded-xl">
+                                <ProblemInfo index = {params.problem}/>
+                            </ResizablePanel>
+
+                    <ResizableHandle/>
+
+                    <ResizablePanel defaultSize={50}>
+
+                        <ResizablePanelGroup direction="vertical" className="gap-[2px]">
+
+                            {/*This is Coding Area pannel */}
+                            <ResizablePanel defaultSize={65} className=" bg-slate-100 rounded-xl">
+                                <CodingArea/>
+                            </ResizablePanel>
+                        
+                        <ResizableHandle />
+
+                        {/*This is Output Area pannel */}
+                        <ResizablePanel defaultSize={35} className=" bg-slate-100 rounded-xl">
+                            <Output/>
+                        </ResizablePanel>
+                                
+                        </ResizablePanelGroup>
+
+                    </ResizablePanel>
+
+                </ResizablePanelGroup>
+        </div>
+
     </div>
+
 }

@@ -27,7 +27,7 @@ export default function ScrollAreaDemo() {
   return (
     <div className="flex justify-center">
 
-    <ScrollArea className=" h-[500px] w-[400px] md:w-[200px] shadow-lg">
+    <ScrollArea className=" h-[450px] w-[400px] md:w-[200px] shadow-lg">
       <div className="p-4   border-black]">
         <h4 className="mb-4 text-lg font-medium leading-none ">Topics :</h4>
         {tags.map((tag,index) => (
