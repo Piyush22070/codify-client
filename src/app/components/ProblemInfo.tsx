@@ -15,7 +15,7 @@ export default function ProblemInfo(props: any){
     })
     useEffect(
         ()=>{
-            axios.get(`http://localhost:3001/problems/${props.index}`)
+            axios.get(`https://codify-kmyn.onrender.com/${props.index}`)
             .then((response)=>{
                 setQuesion(response.data)
             })

@@ -18,7 +18,7 @@ export default function ProblemList() {
   const itemsPerPage = 15;
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/question`)
+    axios.get(`https://codify-kmyn.onrender.com/question`)
       .then((response) => {
         setQuestions(response.data);
       })
