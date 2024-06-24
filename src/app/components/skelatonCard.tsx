@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
  
-export function SkeletonCard() {
+export default function SkeletonCard() {
   return (
     <div className="flex flex-col space-y-3 w-full bg-slate-100">
         <Skeleton className="h-[5px]"  />
