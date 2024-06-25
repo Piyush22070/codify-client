@@ -19,6 +19,7 @@ export default function ProblemList() {
 
   useEffect(() => {
     axios.get(`https://codify-kmyn.onrender.com/question`)
+    // axios.get(`http://localhost:8000/question`)
       .then((response) => {
         setQuestions(response.data);
       })

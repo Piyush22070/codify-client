@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className=' flex bg-slate-800' >
+    <div className=' bg-slate-800' >
     <div className =" bg-gray-800 text-white p-2 flex justify-start">
       <ul className=" hidden w-[70%] md:flex items-center justify-evenly">
         <li><Link href="/" className="hover:bg-gray-700 p-2 rounded px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Home</Link></li>
