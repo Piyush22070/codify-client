@@ -1,8 +1,8 @@
-import Rocket from "./components/Rocket"
+import Homee from "./components/Homee"
 export default function Home(){
   return (
     <div>
-      <Rocket/>
+     <Homee/>
     </div>
   )
 }

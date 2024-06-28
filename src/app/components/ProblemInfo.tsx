@@ -4,6 +4,8 @@ import axios from 'axios'
 import Image from "next/image"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Link from "next/link"
+import { toast } from "sonner"
+
 export default function ProblemInfo(props: any){
     const [question,setQuesion] = useState({
       id: "1",
@@ -26,16 +28,17 @@ export default function ProblemInfo(props: any){
   },
       Accepted: "",
       Submissions: "",
+      sampleInputs  : "2\n22 33 \n tty"
     })
     useEffect(
         ()=>{
             axios.get(`https://codify-kmyn.onrender.com/question/${props.index}`)
-            // axios.get(`http://localhost:8000/question/${props.index-1}`)
+            // axios.get(`http://localhost:8000/question/${props.index}`)
             .then((response)=>{
                 setQuesion(response.data)
             })
             .catch((error)=>{
-                console.log("Nai mila bhai")
+             toast("Wait for while ...")
             })
         },[]
     )
@@ -81,6 +84,11 @@ export default function ProblemInfo(props: any){
   <div>
     <h2 className="text-xl font-semibold">Constraints:</h2>
     <div className="text-sm"><code>{question.Constraints}</code></div>
+    <div className="py-4 text-xl font-semibold">
+      Sample :</div>
+      <div >
+      <textarea className="h-[200px]" value={question.sampleInputs} readOnly/>
+      </div>
     <div className="text-sm py-2">
         <code>{(question.timeComplexity)? <div><strong>Time Complexity Expected : </strong>{question.timeComplexity}</div>:<div></div>}</code>
     </div>

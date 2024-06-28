@@ -10,6 +10,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { toast } from 'sonner';
 
 export default function ProblemList() {
   const [showElement, setShowElement] = useState(false);
@@ -24,7 +25,7 @@ export default function ProblemList() {
         setQuestions(response.data);
       })
       .catch((error) => {
-        console.log("Error fetching data:", error);
+        toast("Wait for while ...free bcknd ;(")
       });
 
     const timer = setTimeout(() => {
@@ -69,7 +70,7 @@ export default function ProblemList() {
                   <td>{indexOfFirstItem + index + 1}</td>
                   <td className='p-4 text-left'>{value.name}</td>
                   <td>{value.difficulty}</td>
-                  <td className='text-blue-500'><Link href={`/problems/${value.id}`}>{`>`}</Link></td>
+                  <td className='text-blue-500'><Link href={`/problems/${value.id-1}`}>{`>`}</Link></td>
                 </tr>
               ))}
             </tbody>

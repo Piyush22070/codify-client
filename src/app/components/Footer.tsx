@@ -1,11 +1,10 @@
-
 import React from 'react';
 import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <div className=' mb-0  text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-    <footer className="bg-gray-800 text-white py-6 mt-7 h-[200px]">
+    <div className=' mb-0 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+    <footer className="bg-black text-white h-[200px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
@@ -22,7 +21,7 @@ const Footer = () => {
       </div>
       
     </footer>
-    <div className='flex justify-center p-2'>© 2024 All rights reserved.</div>
+    <div className='flex justify-center p-2 text-white bg-black'>© 2024 All rights reserved.</div>
     </div>
   );
 };
