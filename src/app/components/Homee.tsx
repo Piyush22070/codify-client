@@ -14,7 +14,7 @@ export default function Homee(){
                     </ParallaxLayer>
 
                 <ParallaxLayer offset={1.8} speed={3} factor={2} >
-                <Image src="/images/mountain.jpg"  className=' w-full opacity-[50%]' alt={'/'} height={500} width={500}/>
+                <Image src="/images/mountain.jpg"  className=' w-full opacity-[70%]' alt={'/'} height={500} width={500}/>
                 </ParallaxLayer>
 
                 <ParallaxLayer offset={0} speed={1} >
