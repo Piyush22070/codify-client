@@ -24,7 +24,8 @@ export default function Problem({ params }: any) {
             language: language
         }
         try {
-            const response = await axios.post('http://localhost:8000/solve', obj)
+          //  const response = await axios.post('http://localhost:8000/solve', obj)
+              const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
             setOutput(response.data.output)
             setAccepted(true)
         } catch (error: any) {

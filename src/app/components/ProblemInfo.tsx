@@ -28,12 +28,13 @@ export default function ProblemInfo(props: any){
   },
       Accepted: "",
       Submissions: "",
-      sampleInputs  : "2\n22 33 \n tty"
+      sampleInput  : "",
+      sampleOutput : ""
     })
     useEffect(
         ()=>{
-            axios.get(`https://codify-kmyn.onrender.com/question/${props.index}`)
-            // axios.get(`http://localhost:8000/question/${props.index}`)
+           // axios.get(`https://codify-kmyn.onrender.com/question/${props.index}`)
+            axios.get(`http://localhost:8000/question/${props.index}`)
             .then((response)=>{
                 setQuesion(response.data)
             })
@@ -84,11 +85,16 @@ export default function ProblemInfo(props: any){
   <div>
     <h2 className="text-xl font-semibold">Constraints:</h2>
     <div className="text-sm"><code>{question.Constraints}</code></div>
-    <div className="py-4 text-xl font-semibold">
-      Sample :</div>
-      <div >
-      <textarea className="h-[200px]" value={question.sampleInputs} readOnly/>
+
+    <div className="py-4 text-xl font-semibold ">
+      Sample Input Output:
       </div>
+      <div className=" flex md:flex-row flex-col gap-[50px]">
+      <div><textarea className="h-[200px]" value={question.sampleInput} readOnly/> </div>
+      <div ><textarea className="h-[200px]" value={question.sampleOutput} readOnly/></div>
+      </div>
+
+
     <div className="text-sm py-2">
         <code>{(question.timeComplexity)? <div><strong>Time Complexity Expected : </strong>{question.timeComplexity}</div>:<div></div>}</code>
     </div>
