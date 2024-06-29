@@ -23,9 +23,15 @@ export default function ProblemList() {
     // axios.get(`http://localhost:8000/question`)
       .then((response) => {
         setQuestions(response.data);
+        if(response.data === null){
+          toast("Wait for while...")
+        }
       })
       .catch((error) => {
-        toast("Wait for while ...free bcknd ;(")
+        if(error){
+          toast("Wait for while...")
+        }
+        
       });
 
     const timer = setTimeout(() => {

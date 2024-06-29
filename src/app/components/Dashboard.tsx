@@ -29,11 +29,11 @@ const Dashboard = () => {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxisWrapper />
-            {/* <XAxis dataKey="name"/>
-            <YAxis /> */}
+            <XAxis dataKey="name"/>
+            <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="submission" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="submission" stroke="black" activeDot={{ r: 8 }} />
             <Line type="monotone" dataKey="accept" stroke="#82ca9d" />
           </LineChart>
         </ResponsiveContainer>
