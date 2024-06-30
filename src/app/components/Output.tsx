@@ -1,10 +1,30 @@
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { useState,useEffect } from "react";
+import axios from "axios";
 interface OutputProps {
     output: string;
     accepted: boolean;
+    index : string
 }
 
-export default function Output({ output, accepted }: OutputProps) {
+export default function Output({ output, accepted , index}: OutputProps) {
+
+    const [sampleOutput,setSmapleOutput] = useState({
+        sampleOutput : ""
+    })
+
+    useEffect(
+        ()=>{
+           axios.get(`https://codify-kmyn.onrender.com/question/${index}`)
+            // axios.get(`http://localhost:8000/question/${index}`)
+            .then((response)=>{
+                setSmapleOutput(response.data)
+            })
+            .catch((error)=>{
+             console.log("Output Area ! ")
+            })
+        },[]
+    )
     return (
         <div className="bg-gray-100 rounded-lg ">
             <div className="p-3 h-fit">
@@ -16,7 +36,7 @@ export default function Output({ output, accepted }: OutputProps) {
                         <ScrollArea>
                             <div className="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider">
                                 <label>Desired Output :</label>
-                                <textarea value="1234" className="ml-[32px] h-[100px] w-[210px]" readOnly />
+                                <textarea value={sampleOutput.sampleOutput} className="ml-[32px] h-[100px] w-[210px]" readOnly />
                             </div>
                             <div className="px-6 py-3 text-left  font-medium text-gray-500 uppercase tracking-wider">
                                 <label>Your Output :</label>

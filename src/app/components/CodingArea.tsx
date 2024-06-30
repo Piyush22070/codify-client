@@ -58,7 +58,6 @@ export default function CodingArea({ setCode, setLanguage }: CodingAreaProps) {
                     <option value="cpp">C++</option>
                     <option value="java">Java</option>
                     <option value="py">Python</option>
-                    <option value="js">JavaScript</option>
                 </select>
             </div>
             <div className=" h-full flex flex-col">

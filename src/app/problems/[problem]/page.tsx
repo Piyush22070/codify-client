@@ -19,13 +19,15 @@ export default function Problem({ params }: any) {
     const [showOutput, setShowOutput] = useState(false)
 
     const giveOutput = async () => {
+        const index = params.problem
         const obj = {
             code: [code],
-            language: language
+            language: language,
+            index : index
         }
         try {
-          //  const response = await axios.post('http://localhost:8000/solve', obj)
-              const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
+        //    const response = await axios.post('http://localhost:8000/solve', obj)
+            const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
             setOutput(response.data.output)
             setAccepted(true)
         } catch (error: any) {
@@ -61,7 +63,7 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel>
-                    {showOutput && <Output output={output} accepted={accepted} />}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem}/>}
                 </ResizablePanelGroup>
             </div>
             <div className="hidden md:flex p-1 w-full h-fit shadow-lg mt-3">
@@ -75,12 +77,12 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel >
-                    {showOutput && <Output output={output} accepted={accepted} />}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem}/>}
                 </ResizablePanelGroup>
             </div>
             <div className="mt-2 bg-slate-100 p-3 rounded-lg shadow-lg flex justify-end items-end mr-4">
                 <button onClick={run} className="bg-white mr-3 p-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-                    {!showOutput ? "Run" : "Hide"}
+                    {!showOutput ? "Run" : "Again"}
                 </button>
                 <button onClick={submit} className="bg-white p-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
                     Submit

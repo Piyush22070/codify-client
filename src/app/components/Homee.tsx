@@ -2,6 +2,7 @@
 import {Parallax,ParallaxLayer} from '@react-spring/parallax'
 import Spline from '@splinetool/react-spline'
 import Image from 'next/image'
+import  Meteors from './Meteror'
 import TechStack from './TechStack'
 
 export default function Homee(){
@@ -22,12 +23,14 @@ export default function Homee(){
                 </ParallaxLayer>
 
                 <ParallaxLayer offset={1} speed={2}>
-                    <div className=' text-white text-center  flex justify-center items-center flex-col blink'>
-                    <div className=' text-5xl md:text-8xl p-3'><code>Codify...</code></div>
-                        <h1 className='text-sm p-3'><code>Piyush Production</code></h1>
-                        <p className='text-sm border-4 rounded-[5px] w-fit p-2'><code><strong>Mission : </strong>Provides you quality questions !</code></p>
-                    </div>
                         
+                    <div className=' text-white text-center  flex justify-center items-center flex-col'>
+                                    
+                                    <div className=' text-5xl md:text-8xl p-5'><code>Codify...</code></div>
+                                    <Meteors number={30}  />
+                                        <h1 className='text-sm p-3'><code>Piyush Production</code></h1>
+                                        <p className='text-sm border-4 rounded-[5px] w-fit p-2'><code><strong>Mission : </strong>Provides you quality questions !</code></p>
+                                    </div>  
                 </ParallaxLayer>
 
                 <ParallaxLayer offset={1.9} speed={1}>
