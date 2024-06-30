@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ReactTooltip from 'react-tooltip';
 const Footer = () => {
   return (
     <div className=' mb-0 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
