@@ -17,6 +17,7 @@ export default function Problem({ params }: any) {
     const [code, setCode] = useState("")
     const [language, setLanguage] = useState("cpp")
     const [showOutput, setShowOutput] = useState(false)
+    const [showElement, setShowElement] = useState(false);
 
     const giveOutput = async () => {
         const index = params.problem
@@ -26,10 +27,17 @@ export default function Problem({ params }: any) {
             index : index
         }
         try {
-        //    const response = await axios.post('http://localhost:8000/solve', obj)
-            const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
-            setOutput(response.data.output)
-            setAccepted(true)
+         //const response = await axios.post('http://localhost:8000/solve', obj)
+         const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
+            let err = response.data.textCaseError
+            if(!err){
+                setOutput(response.data.output)
+                setAccepted(true)
+            }else{
+                setAccepted(false)
+                setOutput(err.message)
+            }
+            
         } catch (error: any) {
             setOutput(error.response.data.stderr)
             setAccepted(false)
@@ -39,6 +47,11 @@ export default function Problem({ params }: any) {
     const run = () => {
         setShowOutput(!showOutput)
         giveOutput()
+
+        const timer = setTimeout(() => {
+            setShowElement(true);
+          }, 2000);
+          return () => clearTimeout(timer);
     }
 
     const submit = () => {
@@ -63,7 +76,7 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel>
-                    {showOutput && <Output output={output} accepted={accepted} index={params.problem}/>}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} />}
                 </ResizablePanelGroup>
             </div>
             <div className="hidden md:flex p-1 w-full h-fit shadow-lg mt-3">
@@ -77,7 +90,7 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel >
-                    {showOutput && <Output output={output} accepted={accepted} index={params.problem}/>}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} />}
                 </ResizablePanelGroup>
             </div>
             <div className="mt-2 bg-slate-100 p-3 rounded-lg shadow-lg flex justify-end items-end mr-4">

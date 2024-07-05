@@ -56,7 +56,7 @@ const [userdata,setUserdata] = useState({
         <code>
         <div className=" md:h-[800px] h-fit  md:w-[800px] w-[400px] mt-[5px] shadow-lg">
 
-            <div className="flex md:flex-row flex-col p-6 ">
+            <div className="flex flex-row  p-6 ">
                 <div className=" w-[100px] h-[100px]">
                     <Image src={userdata.avatar} alt="nominal" height={100}  width={100}/>
                 </div>

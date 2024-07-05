@@ -21,7 +21,7 @@ export default function CodingArea({ setCode, setLanguage }: CodingAreaProps) {
     function handleChangeL(e: React.ChangeEvent<HTMLSelectElement>) {
         setLanguage(e.target.value);
         if(e.target.value === 'java'){
-            toast("Java is not Supported yet ! ")
+            toast("Use Main name notation for main Class")
         }
     }
 

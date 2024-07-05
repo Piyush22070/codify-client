@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import NavigationMenuDemo from '@/app/components/profileDropDown'
 
 
 const Navbar = () => {
@@ -79,11 +80,7 @@ const Navbar = () => {
       </Link>
       </div>
 
-      <div className='flex items-end justify-end roud' >
-        <Link href="/profile">
-          <Image src="/images/nominal.png" alt={'nominal'} height={50} width={40}/>
-        </Link>
-      </div>
+      <NavigationMenuDemo/>
 
     </div>
   );

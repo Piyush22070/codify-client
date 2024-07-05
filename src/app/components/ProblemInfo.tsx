@@ -34,7 +34,7 @@ export default function ProblemInfo(props: any){
     useEffect(
         ()=>{
            axios.get(`https://codify-kmyn.onrender.com/question/${props.index}`)
-            // axios.get(`http://localhost:8000/question/${props.index}`)
+          //axios.get(`http://localhost:8000/question/${props.index}`)
             .then((response)=>{
                 setQuesion(response.data)
             })

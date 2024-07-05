@@ -15,23 +15,21 @@ import { toast } from 'sonner';
 export default function ProblemList() {
   const [showElement, setShowElement] = useState(false);
   const [questions, setQuestions] = useState<any[]>([]);
+  const [originalQuestions, setOriginalQuestions] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
 
   useEffect(() => {
+
+    toast("Wait for while Slow Backend ;(")
+
     axios.get(`https://codify-kmyn.onrender.com/question`)
-    // axios.get(`http://localhost:8000/question`)
+    //axios.get(`http://localhost:8000/question`)
       .then((response) => {
         setQuestions(response.data);
-        if(response.data === null){
-          toast("Wait for while...")
-        }
+        setOriginalQuestions(response.data); 
       })
       .catch((error) => {
-        if(error){
-          toast("Wait for while...")
-        }
-        
       });
 
     const timer = setTimeout(() => {
@@ -43,20 +41,32 @@ export default function ProblemList() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = questions.slice(indexOfFirstItem, indexOfLastItem);
-
+  let currentItems = questions.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(questions.length / itemsPerPage);
 
   const handlePageChange = (pageNumber: SetStateAction<number>) => {
     setCurrentPage(pageNumber);
   };
 
+  const handleOnChange = (e: any) => {
+    const value = e.target.value.toLowerCase();
+    const filtered = originalQuestions.filter(item =>
+      item.name.toLowerCase().includes(value)
+    );
+    setQuestions(filtered);
+    setCurrentPage(1); 
+  };
+
   return (
-    <div className='w-[400px] md:w-[700px] md:h-fit h-fit shadow-xl mt-3 px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider rounded-[5px]'>
+    <div className='w-[400px] md:w-[700px] md:h-[925px] h-fir shadow-xl mt-3 px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider rounded-[5px]'>
       <div className='flex flex-row p-3'>
         <label className="block text-gray-700 text-l font-bold mb-2 p-2">Search</label>
-        <input type="text" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-          placeholder="Search ..." />
+        <input
+          onChange={handleOnChange}
+          type="text"
+          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          placeholder="Search ..."
+        />
       </div>
 
       <div>
