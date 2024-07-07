@@ -47,7 +47,7 @@ export default function Output({ output, accepted , index , visibility ,Vpartial
                                 <label>Your Output :</label>
 
                              {Vpartial ? <div>{visibility ? <textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value={output} /> :<textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value="Wait..." /> }</div>:
-                                 <div>{visibility ? <textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value={"Failed test cases\n"+output} /> :<textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value="Wait..." /> }</div>
+                                 <div>{visibility ? <textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value={"Failed test cases(Need more accurate answer)\n\n"+output} /> :<textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value="Wait..." /> }</div>
                              }   
                             </div>
                         </ScrollArea>
