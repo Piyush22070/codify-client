@@ -25,7 +25,7 @@ export default function TechStack(){
                 <Image src="/images/techstack/ts.png" alt ={"/"} height={50} width={100} />
                 <p>Type Script</p>
             </div><div className="bg-black h-[150px] w-[200px] text-center shadow-lg  shadow-gray-700  hover:shadow-lg hover:shadow-slate-500 m-[30px]">
-                <Image src="/images/techstack/nj.png" alt ={"/"} height={50} width={180} />
+                <Image src="/images/techstack/nj.jpg" alt ={"/"} height={50} width={180} />
                 <p>Node JS</p>
             </div>
             </div>

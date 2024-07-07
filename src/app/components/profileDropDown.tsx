@@ -20,7 +20,7 @@ export default function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>
                     <Avatar className="bg-black">
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarImage src="/images/avatar.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
 

@@ -7,9 +7,10 @@ interface OutputProps {
     accepted: boolean;
     index : string
     visibility : boolean
+    Vpartial : boolean
 }
 
-export default function Output({ output, accepted , index , visibility}: OutputProps) {
+export default function Output({ output, accepted , index , visibility ,Vpartial}: OutputProps) {
 
 
     const [sampleOutput,setSmapleOutput] = useState({
@@ -33,7 +34,7 @@ export default function Output({ output, accepted , index , visibility}: OutputP
         <div className="bg-gray-100 rounded-lg ">
             <div className="p-3 h-fit">
                 <label>
-                 {visibility ? <div>{accepted? <div className="text-green-500">Accepted :</div> : <div className="text-red-500">Not Accepted :</div>} </div>:<div className=" text-gray-500" >Queued...</div> }   
+                 {visibility ? <div>{accepted? <div>{Vpartial ? <div className="text-green-500">Accepted :</div>:<div className=" text-slate-500">Exectued </div>  }</div>: <div className="text-red-500">Not Accepted :</div>} </div>:<div className=" text-gray-500" >Queued...</div> }   
                 </label>
                 {accepted ? (
                     <div className="p-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
@@ -44,7 +45,10 @@ export default function Output({ output, accepted , index , visibility}: OutputP
                             </div>
                             <div className="px-6 py-3 text-left  font-medium text-gray-500 uppercase tracking-wider">
                                 <label>Your Output :</label>
-                                {visibility ? <textarea className="ml-[57px] h-[100px] w-[210px]" readOnly value={output} /> :<textarea className="ml-[57px] h-[100px] w-[210px]" readOnly value="Wait..." /> }
+
+                             {Vpartial ? <div>{visibility ? <textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value={output} /> :<textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value="Wait..." /> }</div>:
+                                 <div>{visibility ? <textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value={"Failed test cases\n"+output} /> :<textarea className="ml-[170px] h-[100px] w-[210px]" readOnly value="Wait..." /> }</div>
+                             }   
                             </div>
                         </ScrollArea>
                     </div>

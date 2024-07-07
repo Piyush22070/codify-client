@@ -18,6 +18,7 @@ export default function Problem({ params }: any) {
     const [language, setLanguage] = useState("cpp")
     const [showOutput, setShowOutput] = useState(false)
     const [showElement, setShowElement] = useState(false);
+    const [partial,setPartaial] = useState(false)
 
     const giveOutput = async () => {
         const index = params.problem
@@ -27,15 +28,17 @@ export default function Problem({ params }: any) {
             index : index
         }
         try {
-         //const response = await axios.post('http://localhost:8000/solve', obj)
-         const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
+         const response = await axios.post('http://localhost:8000/solve', obj)
+         //const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
             let err = response.data.textCaseError
             if(!err){
                 setOutput(response.data.output)
                 setAccepted(true)
+                setPartaial(true)
             }else{
-                setAccepted(false)
-                setOutput(err.message)
+                setAccepted(true)
+                setPartaial(false)
+                setOutput(response.data.output)
             }
             
         } catch (error: any) {
@@ -50,7 +53,7 @@ export default function Problem({ params }: any) {
 
         const timer = setTimeout(() => {
             setShowElement(true);
-          }, 2000);
+          }, 4000);
           return () => clearTimeout(timer);
     }
 
@@ -76,7 +79,7 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel>
-                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} />}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} Vpartial= {partial}/>}
                 </ResizablePanelGroup>
             </div>
             <div className="hidden md:flex p-1 w-full h-fit shadow-lg mt-3">
@@ -90,7 +93,7 @@ export default function Problem({ params }: any) {
                     <ResizablePanel className="bg-slate-100 rounded-xl">
                         <CodingArea setCode={setCode} setLanguage={setLanguage} />
                     </ResizablePanel >
-                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} />}
+                    {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} Vpartial= {partial} />}
                 </ResizablePanelGroup>
             </div>
             <div className="mt-2 bg-slate-100 p-3 rounded-lg shadow-lg flex justify-end items-end mr-4">
