@@ -28,8 +28,8 @@ export default function Problem({ params }: any) {
             index : index
         }
         try {
-         const response = await axios.post('http://localhost:8000/solve', obj)
-         //const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
+         //const response = await axios.post('http://localhost:8000/solve', obj)
+         const response =  await axios.post('https://codify-kmyn.onrender.com/solve',obj)
             let err = response.data.textCaseError
             if(!err){
                 setOutput(response.data.output)
