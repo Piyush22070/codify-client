@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import { toast } from "sonner";
+import MonacoEditor from "react-monaco-editor";
+import { Sun, Moon } from "lucide-react";
 
 interface CodingAreaProps {
     setCode: (code: string) => void;
@@ -8,14 +10,15 @@ interface CodingAreaProps {
 
 export default function CodingArea({ setCode, setLanguage }: CodingAreaProps) {
     const [code, setCodeState] = useState("");
+    const [language, setLangState] = useState("cpp");
+    const [theme, setTheme] = useState("vs-light");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     // cahnge code function
-    function handleChangeC(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        const newValue = e.target.value;
+    function handleChangeC(newValue: string) {
         setCode(newValue);
         setCodeState(newValue);
-    }
+      }
 
     // change language function
     function handleChangeL(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -24,6 +27,9 @@ export default function CodingArea({ setCode, setLanguage }: CodingAreaProps) {
             toast("Java is Not Config on server yet ;)")
         }
     }
+    function toggleTheme() {
+        setTheme(theme === "vs-dark" ? "vs-light" : "vs-dark");
+      }
 
 
     // tab funcntion 
@@ -46,28 +52,47 @@ export default function CodingArea({ setCode, setLanguage }: CodingAreaProps) {
 
     return (
         <div className="max-w-4xl mx-auto  p-5 bg-gray-100 shadow-md rounded-lg">
-            <div className="p-1 flex flex-row">
-                <label htmlFor="language" className="px-6 text-xs font-medium text-gray-500 uppercase">
-                    Language:
+
+            <div className="w-full flex justify-between items-center mb-4">
+
+               <div>
+               <label className="font-sm text-gray-700">
+                    Select Language:
                 </label>
                 <select
                     id="language"
                     onChange={handleChangeL}
-                    className="px-2 py-1 rounded-md focus:outline-none focus:ring-2"
+                    className="ml-2 p-2 border rounded"
                 >
                     <option value="cpp">C++</option>
                     <option value="java">Java</option>
                     <option value="py">Python</option>
                 </select>
+               </div>
+
+                <button
+                className="p-2 bg-gray-300 rounded-full transition"
+                onClick={toggleTheme}
+                >
+                {theme === "vs-dark" ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+
             </div>
-            <div className=" h-full flex flex-col">
-                <textarea
-                    ref={textareaRef}
-                    className="w-full h-[970px] flex-grow rounded-md borderp-2 font-mono text-sm resize-none focus:outline-none focus:ring-2"
-                    onChange={handleChangeC}
-                    onKeyDown={handleKeyDown}
-                    placeholder="Enter the Code..."
-                    value={code}
+            <div className=" h-screen flex flex-col">
+            <MonacoEditor
+                width="100%"
+                height="100%"
+                language={language === "cpp" ? "c" : "python"} // Monaco uses "c" for C++
+                theme={theme}
+                value={code}
+                options={{
+                    minimap: { enabled: false },
+                    automaticLayout: true,
+                    suggestOnTriggerCharacters: true, // Enable suggestions
+                    quickSuggestions: true, // Show suggestions while typing
+                    snippetSuggestions: "inline", // Show code snippets
+                  }}
+                onChange={handleChangeC}
                 />
             </div>
         </div>

@@ -67,7 +67,7 @@ export default function Problem({ params }: any) {
 
     return (
         <div>
-            <div className="md:hidden p-1 w-full h-[800px] shadow-lg mt-3">
+            <div className="md:hidden p-1 w-full h-max shadow-lg mt-3">
                 <ResizablePanelGroup direction="vertical" className="rounded-lg gap-[2px]">
                     {/* Problem Info Area Panel */}
                     <ResizablePanel defaultSize={50} className="bg-slate-100 rounded-xl">
@@ -82,7 +82,7 @@ export default function Problem({ params }: any) {
                     {showOutput && <Output output={output} accepted={accepted} index={params.problem} visibility={showElement} Vpartial= {partial}/>}
                 </ResizablePanelGroup>
             </div>
-            <div className="hidden md:flex p-1 w-full h-fit shadow-lg mt-3">
+            <div className="hidden md:flex p-1 w-full shadow-lg mt-3">
                 <ResizablePanelGroup direction="horizontal" className="rounded-lg gap-[2px]">
                     {/* Problem Info Area Panel */}
                     <ResizablePanel defaultSize={50} className="bg-slate-100 rounded-xl">
